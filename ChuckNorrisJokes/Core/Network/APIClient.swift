@@ -11,7 +11,7 @@ protocol APIClientProtocol{
     func request<T: Decodable>(_ endpoint:Endpoint) async throws -> T
 }
 
-final class APIiClient: APIClientProtocol{
+final class APIClient: APIClientProtocol{
     private let baseUrl: URL
     private let session: URLSession
     private let decoder: JSONDecoder

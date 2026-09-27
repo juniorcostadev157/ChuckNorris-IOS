@@ -1,17 +1,18 @@
 //
-//  GetRandomJokeUseCase.swift
+//  GetCategoriesUseCase.swift
 //  ChuckNorrisJokes
 //
 //  Created by MacBookPro on 27/09/26.
 //
 
-struct GetRandomJokeUseCase{
+struct GetCategoriesUseCase{
     private let repository: any JokeRepositoryProtocol
+    
     init(repository: any JokeRepositoryProtocol) {
         self.repository = repository
     }
     
-    func callAsFunction(category:String? = nil) async -> Result<Joke, AppError>{
-        await repository.getRandomJoke(category: category)
+    func callAsFunction() async -> Result<[String], AppError>{
+        await repository.getCategories()
     }
 }
